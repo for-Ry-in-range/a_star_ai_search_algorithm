@@ -1,17 +1,17 @@
-from h1 import *
+from h1 import * # use some functions that were defined in 
 import sys 
 import heapq
 
 
 def linear_conflict(board, goal):
-    """Count linear conflicts in rows and columns"""
-    conflicts = 0
+    """count the number of linear conflicts in rows and columns"""
+    conflicts = 0 # initial counter 
     
     # CHECK ROWS 
     for row in range(3):
         for col in range(3):
             val = board[row][col]
-            if val == 0:
+            if val == 0: # if empty tile  
                 continue 
             goal_row, goal_col = find_tile(goal, val)
             if row == goal_row:
@@ -54,7 +54,7 @@ def h2_heuristic(board, goal):
 
 def a_star(start, goal):
     """Returns the depth, total nodes, moves, and f values"""
-    start_h = h2_heuristic(start, goal)
+    start_h = h2_heuristic(start, goal) # uses h2 heuristic here 
     
     start_node = Node(start, 0,start_h)
     open_list = []
@@ -74,7 +74,7 @@ def a_star(start, goal):
             if new_flat in closed:
                 continue
             g = current.g + 1
-            h = h2_heuristic(new_board, goal)
+            h = h2_heuristic(new_board, goal) # uses h2 heuristic here 
             new_node = Node(new_board, g, h, current, move)
             heapq.heappush(open_list, new_node)
             total_nodes += 1
@@ -84,7 +84,7 @@ def a_star(start, goal):
 
 def main():
     # Ensure the correct amount of parameters
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 3: # if not 3 arguments print out the error message 
         print("Use this format: python3 h2.py <input.txt> <output.txt>")
         return
 
@@ -95,4 +95,4 @@ def main():
     write_output(output_file, start, goal, depth, total_nodes, moves, f_values)
 
 if __name__ == "__main__":
-    main()
+    main() # main 
