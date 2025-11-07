@@ -1,3 +1,7 @@
+# Authors: 
+# Allen Lu (yl10118)
+# Ryan Wong (rlw9891)
+
 from h1 import * # use some functions that were defined in 
 import sys 
 import heapq

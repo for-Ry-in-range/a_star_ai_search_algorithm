@@ -1,3 +1,7 @@
+# Authors: 
+# Allen Lu (yl10118)
+# Ryan Wong (rlw9891)
+
 import heapq
 import copy
 import sys
